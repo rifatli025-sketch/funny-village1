@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Веселая Деревушка</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <audio id="sound-birds" src="sounds/birds.mp3" loop autoplay preload="auto"></audio>
+    <audio id="sound-polsh" src="sounds/polsh.mp3" preload="auto"></audio>
+    <audio id="sound-keyboard" src="sounds/keyboard.mp3" preload="auto"></audio>
+    <audio id="sound-moo" src="sounds/moo.mp3" preload="auto"></audio>
+    <audio id="sound-scream" src="sounds/Scream.mp3" preload="auto"></audio>
+    <audio id="sound-wolves" src="sounds/wolf.mp3" loop preload="auto"></audio>
+    
+    <audio id="sound-ga" src="sounds/ga.mp3" preload="auto"></audio>
+    <audio id="sound-utki" src="sounds/utki.mp3" loop preload="auto"></audio> <div id="village-container">
+        <div class="controls">
+            <button id="btn-help" class="game-btn">Помощь 🦆</button>
+            <button id="btn-dont-click" class="game-btn danger">Не нажимать 🔴</button>
+        </div>
+
+        <img id="cow" src="images/cow.png" alt="Корова" class="interactive">
+        <img id="chicken" src="images/chicken.png" alt="Курица" class="interactive">
+        <img id="pig" src="images/pig.png" alt="Свинка" class="interactive">
+        <img id="hay" src="images/hay.png" alt="Стог сена" class="interactive">
+        
+        <img id="cat-hacker" src="images/cat.png" alt="Кот-хакер" class="hidden">
+        <img id="tractor" src="images/tractor-grandpa.png" alt="Трактор" class="hidden">
+        
+        <div id="potato-rain"></div>
+    </div>
+
+    <div id="secret-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>🌾 Вы нашли секретную страницу сена!</h2>
+            <p>Вот вам золотое яйцо на удачу:</p>
+            <img src="images/golden-egg.png" alt="Золотое яйцо" class="golden-egg">
+            <button id="close-modal">Вернуться в деревню</button>
+        </div>
+    </div>
+
+    <div id="screamer-overlay" class="screamer-hidden">
+        <img src="images/scream.jpg" alt="BOO!">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+}
+
+#village-container {
+    width: 100%;
+    height: 100%;
+    background: url('images/village-bg.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    transition: filter 0.5s, transform 0.5s;
+}
+
+.controls {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    display: flex;
+    gap: 15px;
+}
+
+.game-btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    user-select: none;
+}
+
+.game-btn.danger {
+    background-color: #f44336;
+}
+
+.interactive {
+    position: absolute;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Координаты элементов */
+#cow { width: 150px; bottom: 15%; left: 10%; }
+#chicken { width: 60px; bottom: 20%; right: 30%; position: absolute; transition: all 0.5s ease-out; }
+#pig { width: 100px; bottom: 10%; left: 40%; transition: all 0.2s ease-out; }
+#hay { width: 120px; bottom: 15%; right: 10%; }
+#cat-hacker { position: absolute; top: 20px; right: 20px; width: 80px; }
+#tractor { position: absolute; bottom: 5%; left: -200px; width: 180px; z-index: 10; }
+
+.hacker-mode { filter: invert(1) hue-rotate(180deg) !important; }
+.shake-effect { animation: shake 0.5s infinite; }
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(0px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(2px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(2px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+#potato-rain {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 99;
+}
+
+.potato { position: absolute; font-size: 30px; animation: fall linear forwards; }
+@keyframes fall {
+    0% { transform: translateY(-50px) rotate(0deg); }
+    100% { transform: translateY(105vh) rotate(360deg); }
+}
+
+.hidden { display: none !important; }
+
+.modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex; justify-content: center; align-items: center; z-index: 1000;
+}
+
+.modal-content {
+    background: #fff8d6; padding: 30px; border-radius: 15px; text-align: center; border: 4px solid #8bc34a;
+}
+
+.golden-egg { width: 100px; margin: 20px auto; display: block; }
+#close-modal { padding: 10px 20px; background: #8bc34a; border: none; color: white; font-weight: bold; border-radius: 5px; cursor: pointer; }
+
+/* Скример растянут на весь экран без черных полос */
+#screamer-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background-color: black; z-index: 9999;
+    display: flex; justify-content: center; align-items: center;
+}
+
+#screamer-overlay img { 
+    width: 100vw; 
+    height: 100vh; 
+    object-fit: fill; 
+}
+.screamer-hidden { display: none !important; }
+
+/* Стили для спавна безумных уток */
+.crazy-duck {
+    position: absolute;
+    width: 50px;
+    z-index: 80;
+    pointer-events: none;
+    transition: all 0.8s ease-in-out;
+    user-select: none;
+}
+
+/* ХОРРОР-СТИЛИ */
+
+/* Установка картинки night.jpg на фон ночи */
+.night-bg {
+    background: url('images/night.jpg') no-repeat center center !important;
+    background-size: cover !important;
+    filter: none !important;
+}
+
+/* Настройки летающего призрака */
+#ghost {
+    position: absolute;
+    width: 150px;
+    z-index: 50;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 5s ease-in-out, transform 0.2s linear;
+}
+
+.ghost-visible {
+    opacity: 0.8 !important;
+}
+
+/* Эффект глитча перед вылетом вкладки */
+.glitch-screen {
+    animation: glitch 0.1s infinite;
+}
+
+@keyframes glitch {
+    0% { filter: invert(0) brightness(1); }
+    50% { filter: invert(1) brightness(0.5) contrast(2); background: #f00; }
+    100% { filter: invert(0) brightness(1.5); }
+}
